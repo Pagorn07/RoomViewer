@@ -13,9 +13,9 @@ class RoomsGetController extends AbstractController
     public function __invoke(): Response
     {
         $roomsJson = $this->getRoomsJson();
-        $paginatedRooms = Room::getRoomsWithPagination($roomsJson, 5, 10);
+        $paginatedRooms = Room::getRoomsWithPagination($roomsJson, 20);
 
-        return $this->render("base.html.twig", $paginatedRooms);
+        return $this->render("base.html.twig", ["headers" => Room::getVariablesNames(), "data" => $paginatedRooms]);
     }
 
     private function getRoomsJson(): string
