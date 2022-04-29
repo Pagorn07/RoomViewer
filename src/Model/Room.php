@@ -21,6 +21,31 @@ class Room
         $this->image = $image;
     }
 
+    public function getTitle(): string
+    {
+        return $this->title;
+    }
+
+    public function getLink(): string
+    {
+        return $this->link;
+    }
+
+    public function getAddress(): string
+    {
+        return $this->address;
+    }
+
+    public function getCity(): string
+    {
+        return $this->city;
+    }
+
+    public function getImage(): string
+    {
+        return $this->image;
+    }
+
     public static function getRoomsWithPagination(string $roomsJson, int $min, int $max): array
     {
         $roomsArray = json_decode($roomsJson);
@@ -34,10 +59,15 @@ class Room
                     $actualRoom->Link,
                     $actualRoom->Address,
                     $actualRoom->City,
-                    $actualRoom->Images[0]
+                    empty($actualRoom->Images) ? "" : $actualRoom->Images[0]
                 );
         }
 
         return $roomsWithPagination;
+    }
+
+    public static function getVariablesNames(): array
+    {
+        return ["title", "link", "address", "city", "image"];
     }
 }
