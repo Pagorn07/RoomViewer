@@ -1,6 +1,6 @@
-show_rooms:
-    path: /show_rooms
-    controller: App\Controller\ShowRoomsGetController
+rooms:
+    path: /rooms
+    controller: App\Controller\RoomsGetController
 
 kernel:
     resource: ../src/Kernel.php
