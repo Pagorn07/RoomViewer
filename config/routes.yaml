@@ -1,0 +1,7 @@
+show_rooms:
+    path: /show_rooms
+    controller: App\Controller\ShowRoomsGetController
+
+kernel:
+    resource: ../src/Kernel.php
+    type: annotation
