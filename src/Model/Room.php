@@ -46,12 +46,12 @@ class Room
         return $this->image;
     }
 
-    public static function getRoomsWithPagination(string $roomsJson, int $min, int $max): array
+    public static function getRoomsWithPagination(string $roomsJson, int $recordLimit): array
     {
         $roomsArray = json_decode($roomsJson);
         $roomsWithPagination = [];
 
-        for ($i = $min; $i < $max; $i++) {
+        for ($i = 0; $i < $recordLimit; $i++) {
             $actualRoom = $roomsArray[$i];
             
             $roomsWithPagination[] = new self(
